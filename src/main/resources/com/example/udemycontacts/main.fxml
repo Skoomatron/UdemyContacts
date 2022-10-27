@@ -1,16 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.udemycontacts.MainController">
+    <top>
+        <Label text="Contacts"/>
+        <ToolBar>
+            <Button>
+                <tooltip>
+                    <Tooltip text="Add New Contact"/>
+                </tooltip>
+                <graphic>
+                    <ImageView>
+                        <Image url="@/toolbarButtonGraphics/general/Add24.gif"/>
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button>
+                <tooltip>
+                    <Tooltip text="Update Contact"/>
+                </tooltip>
+                <graphic>
+                    <ImageView>
+                        <Image url="@/toolbarButtonGraphics/general/Edit24.gif"/>
+                    </ImageView>
+                </graphic>
+            </Button>
+            <Button>
+                <tooltip>
+                    <Tooltip text="Delete Contact"/>
+                </tooltip>
+                <graphic>
+                    <ImageView>
+                        <Image url="@/toolbarButtonGraphics/general/Delete24.gif"/>
+                    </ImageView>
+                </graphic>
+            </Button>
+        </ToolBar>
+    </top>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.udemycontacts.MainController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+
+    <center>
+        <TableView>
+            <columns>
+                <TableColumn text="First Name"/>
+                <TableColumn text="Last Name"/>
+                <TableColumn text="Phone Number"/>
+                <TableColumn text="Notes"/>
+            </columns>
+        </TableView>
+    </center>
+
+</BorderPane>
