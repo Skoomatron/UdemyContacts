@@ -3,17 +3,14 @@ package com.example.udemycontacts;
 public class Contacts {
     private String firstName;
     private String lastName;
-    private String email;
     private String phoneNumber;
+    private String notes;
 
-    private String fullName;
-
-    public Contacts(String firstName, String lastName, String email, String phoneNumber) {
+    public Contacts(String firstName, String lastName, String phoneNumber, String notes) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.email = email;
         this.phoneNumber = phoneNumber;
-        this.firstName = firstName + " " + lastName;
+        this.notes = notes;
     }
 
     public String getFirstName() {
@@ -32,23 +29,19 @@ public class Contacts {
         this.lastName = lastName;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public String getFullName() {
-        return this.fullName;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public String getPhoneNumber() {
         return phoneNumber;
     }
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
     }
 }
