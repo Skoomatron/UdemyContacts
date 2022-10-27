@@ -4,6 +4,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 <BorderPane xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.example.udemycontacts.MainController">
     <top>
@@ -39,18 +40,44 @@
                     </ImageView>
                 </graphic>
             </Button>
+            <Button onAction="#exitApplication">
+                <tooltip>
+                    <Tooltip text="Exit Application"/>
+                </tooltip>
+                <graphic>
+                    <ImageView>
+                        <Image url="@/toolbarButtonGraphics/general/Stop24.gif"/>
+                    </ImageView>
+                </graphic>
+            </Button>
         </ToolBar>
     </top>
 
 
 
     <center>
-        <TableView>
+        <TableView fx:id="tableView">
             <columns>
-                <TableColumn text="First Name"/>
-                <TableColumn text="Last Name"/>
-                <TableColumn text="Phone Number"/>
-                <TableColumn text="Notes"/>
+                <TableColumn text="First Name">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="firstName"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Last Name">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="lastName"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Phone Number">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="phoneNumber"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn text="Notes">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="notes"/>
+                    </cellValueFactory>
+                </TableColumn>
             </columns>
         </TableView>
     </center>

@@ -1,14 +1,21 @@
 package com.example.udemycontacts;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.Label;
+import javafx.application.Platform;
 
 public class MainController {
-    @FXML
-    private Label welcomeText;
+//    @FXML
+//    private TableView<ContactData> tableView;
+//    @FXML
+//    private PropertyValueFactory firstName;
+//    @FXML
+//    private PropertyValueFactory lastName;
+//    @FXML
+//    private PropertyValueFactory phoneNumber;
+//    @FXML
+//    private PropertyValueFactory notes;
 
-    @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+
+    public void exitApplication() {
+        Platform.exit();
     }
 }
