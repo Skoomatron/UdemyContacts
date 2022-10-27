@@ -6,11 +6,12 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <BorderPane xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.udemycontacts.MainController">
+            fx:controller="com.example.udemycontacts.MainController"
+            fx:id="mainBorderPane">
     <top>
         <Label text="Contacts"/>
         <ToolBar>
-            <Button>
+            <Button onAction="#addContact">
                 <tooltip>
                     <Tooltip text="Add New Contact"/>
                 </tooltip>
