@@ -37,13 +37,13 @@ public class MainController {
         dialog.setTitle("Add New Contact");
         dialog.setHeaderText("Contact");
 
+
         FXMLLoader fxmlLoader = new FXMLLoader();
         fxmlLoader.setLocation(getClass().getResource("contactDialog.fxml"));
 
         try {
             dialog.getDialogPane().setContent(fxmlLoader.load());
         } catch (IOException e) {
-            System.out.println("Couldn't Find the Dialog");
             e.printStackTrace();
             return;
         }
@@ -55,6 +55,37 @@ public class MainController {
         if (result.isPresent() && result.get() == ButtonType.OK) {
             DialogController controller = fxmlLoader.getController();
             Contacts newContact = controller.getAllInputs();
+        }
+    }
+
+    @FXML
+    public void updateContact() {
+
+        // May need to circle back to consolidate the functionality of add and update.
+
+        Dialog<ButtonType> dialog = new Dialog<>();
+        dialog.initOwner(mainBorderPane.getScene().getWindow());
+        dialog.setTitle("Update Current Contact");
+        dialog.setHeaderText("Contact");
+        dialog.setContentText("testing");
+
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("contactDialog.fxml"));
+
+        try {
+            dialog.getDialogPane().setContent(fxmlLoader.load());
+        } catch (IOException e) {
+            e.printStackTrace();
+            return;
+        }
+
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.APPLY);
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
+        Optional<ButtonType> result = dialog.showAndWait();
+
+        if (result.isPresent() && result.get() == ButtonType.APPLY) {
+            DialogController controller = fxmlLoader.getController();
+            Contacts newContact = controller.updateInputs();
         }
     }
 

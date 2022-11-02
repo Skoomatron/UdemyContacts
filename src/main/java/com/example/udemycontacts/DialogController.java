@@ -26,4 +26,9 @@ public class DialogController {
         ContactData.getInstance().addContact(newContacts);
         return newContacts;
     }
+
+    public Contacts updateInputs() {
+        System.out.println("Nothing yet");
+        return null;
+    }
 }
