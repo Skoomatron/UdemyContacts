@@ -8,8 +8,6 @@ import javafx.scene.control.Dialog;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,8 +17,20 @@ public class MainController {
     @FXML
     private BorderPane mainBorderPane;
     public void initialize() throws IOException {
-        List<String> lines = Files.readAllLines(Paths.get("myContacts.txt"));
-        System.out.println(lines.get(0));
+//        List<String> lines = Files.readAllLines(Paths.get("myContacts.txt"));
+//        System.out.println(lines.get(0));
+//        System.out.println(lines.get(1));
+//        System.out.println(lines.get(2));
+//        System.out.println(lines.get(3));
+//        for (int x = 0; x < lines.size(); x += 3) {
+//            System.out.println(x);
+//            System.out.println(lines.get(0));
+//            System.out.println(lines.get(1));
+//            System.out.println(lines.get(2));
+//            System.out.println(lines.get(3));
+//
+//        }
+
 //        Scanner s = new Scanner(new File("myContacts.txt"));
 //        ArrayList<String> list = new ArrayList<String>();
 //        while (s.hasNext()) {
