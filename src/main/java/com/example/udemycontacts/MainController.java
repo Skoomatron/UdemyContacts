@@ -8,6 +8,8 @@ import javafx.scene.control.Dialog;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,32 +19,11 @@ public class MainController {
     @FXML
     private BorderPane mainBorderPane;
     public void initialize() throws IOException {
-//        List<String> lines = Files.readAllLines(Paths.get("myContacts.txt"));
-//        System.out.println(lines.get(0));
-//        System.out.println(lines.get(1));
-//        System.out.println(lines.get(2));
-//        System.out.println(lines.get(3));
-//        for (int x = 0; x < lines.size(); x += 3) {
-//            System.out.println(x);
-//            System.out.println(lines.get(0));
-//            System.out.println(lines.get(1));
-//            System.out.println(lines.get(2));
-//            System.out.println(lines.get(3));
-//
-//        }
-
-//        Scanner s = new Scanner(new File("myContacts.txt"));
-//        ArrayList<String> list = new ArrayList<String>();
-//        while (s.hasNext()) {
-//            System.out.println(s.next());
-//            list.add(s.next());
-//        }
-//        s.close();
+        List<String> temp = checkContacts();
+        initializeContacts(temp);
     }
     @FXML
     public void exitApplication() {
-//        ContactData data = ContactData.getInstance();
-//        data.storeContacts();
         Platform.exit();
     }
     @FXML
@@ -70,6 +51,24 @@ public class MainController {
         if (result.isPresent() && result.get() == ButtonType.OK) {
             DialogController controller = fxmlLoader.getController();
             Contacts newContact = controller.getAllInputs();
+        }
+    }
+
+    public List<String> checkContacts() throws IOException {
+        List<String> lines = Files.readAllLines(Paths.get("myContacts.txt"));
+        return lines;
+    }
+
+    public void initializeContacts(List<String> lines) {
+
+        for (int x = 0; x < lines.size(); x += 4) {
+            System.out.println(x);
+            System.out.println(lines.get(x));
+            System.out.println(lines.get(x+1));
+            System.out.println(lines.get(x+2));
+            System.out.println(lines.get(x+3));
+            Contacts thisContact = new Contacts(lines.get(x), lines.get(x+1), lines.get(x+2), lines.get(x+3));
+            ContactData.getInstance().addContact(thisContact);
         }
     }
 }
