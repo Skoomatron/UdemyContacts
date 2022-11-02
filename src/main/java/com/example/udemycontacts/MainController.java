@@ -8,20 +8,27 @@ import javafx.scene.control.Dialog;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Optional;
 
 public class MainController {
     private List<Contacts> allContacts;
 
-    public void initialize() {
-        Contacts test = new Contacts("trevor", "edwards", "555-555-5555", "cool dude");
-        allContacts = new ArrayList<Contacts>();
-        allContacts.add(0, test);
-    }
     @FXML
     private BorderPane mainBorderPane;
+    public void initialize() throws IOException {
+        List<String> lines = Files.readAllLines(Paths.get("myContacts.txt"));
+        System.out.println(lines.get(0));
+//        Scanner s = new Scanner(new File("myContacts.txt"));
+//        ArrayList<String> list = new ArrayList<String>();
+//        while (s.hasNext()) {
+//            System.out.println(s.next());
+//            list.add(s.next());
+//        }
+//        s.close();
+    }
     @FXML
     public void exitApplication() {
 //        ContactData data = ContactData.getInstance();
