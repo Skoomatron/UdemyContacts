@@ -59,7 +59,7 @@
     <center>
         <TableView fx:id="tableView">
             <columns>
-                <TableColumn text="First Name">
+                <TableColumn text="First Name" fx:id="firstName">
                     <cellValueFactory>
                         <PropertyValueFactory property="firstName"/>
                     </cellValueFactory>

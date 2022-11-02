@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
+import javafx.scene.control.TableView;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
@@ -14,13 +15,16 @@ import java.util.List;
 import java.util.Optional;
 
 public class MainController {
-    private List<Contacts> allContacts;
-
     @FXML
     private BorderPane mainBorderPane;
+    @FXML
+    private TableView<Contacts> tableView;
+
     public void initialize() throws IOException {
         List<String> temp = checkContacts();
         initializeContacts(temp);
+
+        tableView.setItems(ContactData.getInstance().getAllContacts());
     }
     @FXML
     public void exitApplication() {
@@ -55,20 +59,17 @@ public class MainController {
     }
 
     public List<String> checkContacts() throws IOException {
-        List<String> lines = Files.readAllLines(Paths.get("myContacts.txt"));
-        return lines;
+        List<String> temp = Files.readAllLines(Paths.get("myContacts.txt"));
+        return temp;
     }
 
     public void initializeContacts(List<String> lines) {
-
         for (int x = 0; x < lines.size(); x += 4) {
-            System.out.println(x);
-            System.out.println(lines.get(x));
-            System.out.println(lines.get(x+1));
-            System.out.println(lines.get(x+2));
-            System.out.println(lines.get(x+3));
             Contacts thisContact = new Contacts(lines.get(x), lines.get(x+1), lines.get(x+2), lines.get(x+3));
             ContactData.getInstance().addContact(thisContact);
         }
+        List<Contacts> temp = ContactData.getInstance().getAllContacts();
+        System.out.println(temp.get(0));
     }
+
 }
